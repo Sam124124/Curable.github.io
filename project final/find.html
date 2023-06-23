@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>healthcare website</title>
+
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!--custom css file link-->
+    <link rel="stylesheet" href="css/style_find2.css">
+    <link rel="stylesheet" href="css/style_find3.css">
+
+</head>
+
+<body>
+
+    <!--header section starts-->
+
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>Curable</strong> </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#consult online">Consult online</a>
+            <a href="#appointment">appointment</a>
+            <a href="find.html">Find a doctor</a>
+            <a href="doctor near me">Doctor near me</a>
+
+        </nav>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+    </header>
+
+    <div style="margin-top: 131px;">
+
+        <h1>Looking for a Doctor?</h1>
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Enter your location">
+            <select id="specialtySelect">
+                <option value="">Select Specialty</option>
+                <option value="ENT">ENT</option>
+                <option value="cancer">cancer</option>
+                <option value="arthritis">Arthritis</option>
+                <option value="Orthopedist">Orthopedist</option>
+                <option value="Dentist">Dentist</option>
+                <option value="General Physician">General Physician</option>
+                <option value="Eye's specialist">Eye's specialist</option>
+                <option value="neurosurgeon">Neurosurgeon</option>
+                <!-- Add more specialty options as needed -->
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div id="searchResults"></div>
+
+    <!-- Slider -->
+    <div class="carousel">
+        <div class="slide active">
+            <img src="image/f1.jpg" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="image/f2.jpg" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="image/f3.jpg" alt="Slide 3">
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- slider js -->
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide() {
+        slides.forEach((slide) => {
+            slide.classList.remove('active');
+        });
+        slides[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        showSlide();
+    }
+
+    setInterval(nextSlide, 3000);
+
+</script>
+
+<!-- Page logic -->
+<script>
+
+    // Get the form, search results, and specialty select elements
+    const form = document.getElementById('searchForm');
+    const searchResults = document.getElementById('searchResults');
+    const specialtySelect = document.getElementById('specialtySelect');
+    // Handle form submission
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Get the search input and specialty select values
+        const location = document.getElementById('searchInput').value;
+        const specialty = specialtySelect.value;
+
+        // Check if location and specialty are empty
+        if (location.trim() === '' && specialty === '') {
+            displayErrorMessage('Please provide the location and select a specialty.');
+        } else {
+            // Call a function to search for doctors by location and specialty
+            searchDoctors(location, specialty);
+        }
+    });
+
+    // Function to search for doctors by location and specialty
+    function searchDoctors(location, specialty) {
+        // Perform an API request or use a predefined list of doctors
+        const doctors = [
+            { name: 'Dr. Amit Das', address: 'Howrah,kadamtala', specialty: 'cancer' },
+            { name: 'Dr. Ranjit Karmakar', address: 'Hoogly', specialty: 'arthritis' },
+            { name: 'Dr. Akash Roy', address: 'Kolkata', specialty: 'arthritis' },
+            { name: 'Dr. Madhuri Dixit', address: 'Howrah', specialty: 'cancer' },
+            { name: 'Dr. Tapan Kotal', address: 'Hoogly', specialty: 'neurosurgeon' },
+            { name: 'Dr. R Nandi', address: 'Kolkata', specialty: 'neurosurgeon' },
+            { name: 'Dr. Abhijit Bandyopadhyay', address: 'Shibpur,Howrah', specialty: 'Orthopedist' },
+            { name: 'Dr. Anamitra dey', address: 'M.B.Road,Howrah', specialty: 'Dentist' },
+            { name: 'Dr. Vijay Singh Baid', address: 'Ghusuri,Howrah', specialty: 'General Physician' },
+            { name: 'Dr. Akash Chatterjee', address: 'Bhawanipur,Kolkata', specialty: 'General Physician' },
+            { name: 'Dr. Vivek Jain', address: 'Hatibagan,Kolkata', specialty: 'Dentist' },
+            { name: 'Dr. Akansha Roy', address: 'Kolkata', specialty: 'cancer' },
+            { name: 'Dr. Ranjit Karmakar', address: 'Hoogly', specialty: 'arthritis' },
+            { name: 'Dr. Akash Roy', address: 'Kolkata', specialty: 'arthritis' },
+            { name: 'Dr. Madhuri Dixit', address: 'Howrah', specialty: 'cancer' },
+            { name: 'Dr. Tapan Kotal', address: 'Hoogly', specialty: 'neurosurgeon' },
+            { name: 'Dr. R Nandi', address: 'Kolkata', specialty: 'neurosurgeon' },
+            { name: 'Dr. Abhijit Bandyopadhyay', address: 'Shibpur,Howrah', specialty: 'Orthopedist' },
+            { name: 'Dr. Anamitra dey', address: 'M.B.Road,Howrah', specialty: 'Dentist' },
+            { name: 'Dr. Vijay Singh Baid', address: 'Ghusuri,Howrah', specialty: 'General Physician' },
+            { name: 'Dr. Akash Chatterjee', address: 'Bhawanipur,Kolkata', specialty: 'General Physician' },
+            { name: 'Dr. Vivek Jain', address: 'Hatibagan,Kolkata', specialty: 'Dentist' },
+            { name: 'Dr. A', address: 'Kolkata', specialty: 'ENT' },
+            { name: 'Dr. B', address: 'Howrah', specialty: 'ENT' },
+            { name: 'Dr. C', address: 'Hoogly', specialty: 'ENT' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // Add more doctors here...
+        ];
+
+        // Clear previous search results
+        searchResults.innerHTML = '';
+
+        // Check if location and specialty are empty
+        if (location.trim() === '' && specialty === '') {
+            displayErrorMessage('Please provide the location and select a specialty.');
+        } else {
+            // Filter doctors by location and specialty
+            const filteredDoctors = doctors.filter(function (doctor) {
+                const doctorSpecialty = doctor.specialty.toLowerCase(); // Convert specialty to lowercase for case-insensitive comparison
+                return (
+                    (location === '' || doctor.address.toLowerCase().includes(location.toLowerCase())) &&
+                    (specialty === '' || doctorSpecialty === specialty.toLowerCase())
+                );
+            });
+
+
+            // Display the filtered results
+            if (filteredDoctors.length > 0) {
+                filteredDoctors.forEach(function (doctor) {
+                    // Create a new result element
+                    const resultElement = document.createElement('div');
+                    resultElement.innerHTML = `<strong>${doctor.name}</strong><br>${doctor.address}<br>Specialty: ${doctor.specialty}`;
+
+                    // Append the result to the search results container
+                    searchResults.appendChild(resultElement);
+                });
+            } else {
+                // No doctors found
+                const noResultsElement = document.createElement('div');
+                noResultsElement.textContent = 'No doctors found.';
+                searchResults.appendChild(noResultsElement);
+            }
+        }
+    }
+
+
+    // Function to display an error message
+    function displayErrorMessage(message) {
+        // Clear previous search results
+        searchResults.innerHTML = '';
+
+        // Create a new error message element
+        const errorMessage = document.createElement('div');
+        errorMessage.textContent = message;
+        errorMessage.style.color = 'red';
+
+        // Append the error message to the search results container
+        searchResults.appendChild(errorMessage);
+    }
+
+</script>

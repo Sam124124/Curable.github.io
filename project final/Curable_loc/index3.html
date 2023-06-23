@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find Nearby Medical Services</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <meta charset="utf-8" />
+    <script type='text/javascript'>
+        var map;
+
+        // Query URL to the PointsOfInterest data source
+        var sdsDataSourceUrl = 'http://spatial.virtualearth.net/REST/v1/data/Microsoft/PointsOfInterest';
+
+        function GetMap() {
+            map = new Microsoft.Maps.Map('#map', {}); // Initialize the map
+            // Load the auto-suggest module
+            Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', function () {
+                var manager = new Microsoft.Maps.AutosuggestManager({ map: map });
+                manager.attachAutosuggest('#searchBox', '#searchBoxContainer', selectedSuggestion);
+            });
+            // Load the spatial data servides module
+            Microsoft.Maps.loadModule('Microsoft.Maps.SpatialDataService', function () {
+                Microsoft.Maps.Events.addHandler(map, 'viewchangeend', getNearbyLocations); // event handler according to map's view changing
+            });
+        }
+        // function to get auto-complete suggestions along with nearby search
+        function selectedSuggestion(result) {
+            // Remove previously selected suggestions from the map.
+            map.entities.clear();
+
+            // Show the suggestion as a pushpin and center map over it.
+            var pin = new Microsoft.Maps.Pushpin(result.location);
+            map.entities.push(pin);
+            map.setView({ bounds: result.bestView });
+
+            // Perform nearby search based on the selected suggestion.
+            var queryOptions = {
+                queryUrl: sdsDataSourceUrl,
+                spatialFilter: {
+                    spatialFilterType: 'nearby',
+                    location: result.location,
+                    radius: 25
+                },
+                // Add your specific filter if needed.
+                filter: new Microsoft.Maps.SpatialDataService.Filter('EntityTypeID', 'eq', 9583)
+            };
+
+            Microsoft.Maps.SpatialDataService.QueryAPIManager.search(queryOptions, map, function (data) {
+                map.entities.push(data);
+            });
+        }
+        // function for nearby search for default location
+        function getNearbyLocations() {
+            // Remove any existing data from the map.
+            map.entities.clear();
+
+            // Create a query to get nearby data based on the current map center.
+            var queryOptions = {
+                queryUrl: sdsDataSourceUrl,
+                spatialFilter: {
+                    spatialFilterType: 'nearby',
+                    location: map.getCenter(),
+                    radius: 25
+                },
+                // Add your specific filter if needed.
+                filter: new Microsoft.Maps.SpatialDataService.Filter('EntityTypeID', 'eq', 9583)
+            };
+
+            Microsoft.Maps.SpatialDataService.QueryAPIManager.search(queryOptions, map, function (data) {
+                map.entities.push(data);
+            });
+        }
+    </script>
+    <script type='text/javascript'
+        src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AihSVhryHD7XK6k4yyhHdL1kWi3CKDQtIJ5TBsDxXcJ5esEFL8EjiU6p3PwEOvDD'
+        async defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Search Your NearBy Medical Services</h1>
+    </header>
+    <main>
+        <div id='searchBoxContainer'>
+            <input type='text' id='searchBox' />
+        </div>
+
+        <div id="map" style="position:relative;width:600px;height:400px;"></div>
+    </main>
+    <footer>
+        <p class="copyright">2023 - Curable all rights reserved</p>
+    </footer>
+</body>
+
+</html>
