@@ -1,0 +1,276 @@
+{
+  "intents": [
+    {
+      "tag": "no",
+      "patterns": [
+        "No",
+        "No thanks",
+        "Not really",
+        "I don't think so"
+      ],
+      "responses": [
+        "Alright, let me know if you change your mind or have any other questions.",
+        "No problem! If you need any assistance in the future, feel free to ask.",
+        "Understood. If you have any other concerns, feel free to ask."
+      ]
+    },
+    {
+      "tag": "headache",
+      "patterns": [
+        "have headache",
+        "I have a headache",
+        "How to relieve a headache?",
+        "What can I do for a headache?"
+      ],
+      "responses": [
+        "I'm sorry to hear that you're experiencing a headache. Please don't go out in the sun first of all. Now tell the exact position you are having headache.",
+        "Don't to out in scorching heat of sun. Can you tell me the exact position of the headache?"
+      ]
+    },
+    {
+      "tag": "unable",
+      "patterns": [
+        "I don't know exactly",
+        "Am unable to find out"
+      ],
+      "responses": [
+        "If your headache is unbearable then please consult a doctor."
+      ]
+    },
+    {
+      "tag": "middle",
+      "patterns": [
+        "i guess in the middle area",
+        "middle portion"
+      ],
+      "responses": [
+        "If your are having a headache in the middle of the haed, then it maight be for your migrain..in that case visit your nearest physician"
+      ]
+    },
+    {
+      "tag": "forhead",
+      "patterns": [
+        "in the forhead",
+        "i guess in the forhead portion"
+      ],
+      "responses": [
+        "If you are facing a headache in forhead, then it may be for your stress. Use a balm and shutdown the screen and relax"
+      ]
+    },
+    {
+      "tag": "cough",
+      "patterns": [
+        "have cough",
+        "I have a cough",
+        "How to get rid of a cough?",
+        "What remedies are there for a cough?"
+      ],
+      "responses": [
+        "It's important to stay hydrated and get plenty of rest. You can try using cough drops, honey and warm water, or over-the-counter cough syrups to soothe your throat. If your cough persists for more than a few weeks or is accompanied by other concerning symptoms, it's recommended to consult a healthcare professional for further evaluation."
+      ]
+    },
+    {
+      "tag": "fever",
+      "patterns": [
+        "have fever",
+        "I have a fever",
+        "How to reduce fever?",
+        "What should I do for a fever?"
+      ],
+      "responses": [
+        "I'm sorry to hear that you have a fever. It's important to rest and stay hydrated.",
+        "1. If your body temperature is not more that 100F, then there is nothing to worry about 2. If your body temperature is more than 100F, then I would suggest you to wet a cotton cloth and place it on your forhead 3. Otherwise, If the temperature is not coming in control, then you can have a Paracetamol or a Calpol. And you and contact a doctor as well"
+      ]
+    },
+    {
+      "tag": "back_pain",
+      "patterns": [
+        "I have back pain",
+        "How to relieve back pain?",
+        "What can I do for a sore back?"
+      ],
+      "responses": [
+        "I'm sorry to hear that you're experiencing back pain. It's important to avoid activities that may aggravate the pain and practice good posture. You can try applying a hot or cold compress to the affected area, gently stretching or doing exercises that target the back muscles, and taking over-the-counter pain relievers, if appropriate. If your back pain persists or becomes severe, it's advisable to consult a healthcare professional for proper evaluation and guidance."
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "What's your name?",
+        "Are you a bot?",
+        "Who am I talking to?",
+        "What should I call you?"
+      ],
+      "responses": [
+        "I am an AI-powered healthcare bot.",
+        "You can call me Curo.",
+        "I'm an AI assistant here to help you with your healthcare inquiries."
+      ]
+    },
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hello! How can I assist you with your healthcare needs?",
+        "Hi there! How may I help you today?",
+        "Welcome! What can I do for you in terms of healthcare?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "Ok bye",
+        "See you later",
+        "Goodbye"
+      ],
+      "responses": [
+        "Take care! Feel free to reach out if you have more questions.",
+        "Goodbye! Stay healthy and have a great day.",
+        "Bye! Remember to prioritize your well-being."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's helpful",
+        "Thank's a lot!"
+      ],
+      "responses": [
+        "You're welcome! If you need further assistance, let me know.",
+        "I'm glad I could help!",
+        "My pleasure. Stay well!"
+      ]
+    },
+    {
+      "tag": "ok",
+      "patterns": [
+        "Ok",
+        "Okay",
+        "Got it",
+        "Alright",
+        "Sure"
+      ],
+      "responses": [
+        "Great! If you have any more questions feel free to ask :-)",
+        "Alright! Let me know if there's anything else I can assist you with.",
+        "Perfect! If you need further assistance, don't hesitate to reach out."
+      ]
+    },
+    {
+      "tag": "services",
+      "patterns": [
+        "What services do you offer?",
+        "Tell me about your healthcare services",
+        "What can I expect from your healthcare center?"
+      ],
+      "responses": [
+        "We offer a range of healthcare services, including primary care, specialist consultations, diagnostic tests, vaccinations, and more.",
+        "Our healthcare center provides services such as primary care, specialized treatments, preventive care, and health screenings."
+      ]
+    },
+    {
+      "tag": "appointments",
+      "patterns": [
+        "How can I schedule an appointment?",
+        "Can I book an appointment?",
+        "What's the process for setting up a consultation?"
+      ],
+      "responses": [
+        "To schedule an appointment, you can either call our reception desk or use our online booking system on our website.",
+        "Booking an appointment is easy! You can reach out to our receptionist or utilize our convenient online appointment booking system."
+      ]
+    },
+    {
+      "tag": "payments",
+      "patterns": [
+        "What payment methods do you accept?",
+        "Can I pay with insurance?",
+        "Do you accept credit cards?"
+      ],
+      "responses": [
+        "We accept various payment methods, including credit cards, cash, and some insurance plans. Please check with our staff regarding your specific insurance coverage.",
+        "We accept credit cards and cash payments. For insurance, please consult our team to verify if we accept your provider."
+      ]
+    },
+    {
+      "tag": "doctors",
+      "patterns": [
+        "Tell me about your doctors",
+        "Are your doctors qualified?",
+        "What are the credentials of your medical staff?"
+      ],
+      "responses": [
+        "Our doctors are highly qualified and experienced professionals. They hold relevant medical degrees and are licensed practitioners. Rest assured, you'll receive quality care from our medical staff.",
+        "Our doctors are well-credentialed and dedicated to providing excellent healthcare. They have extensive medical training and experience in their respective fields."
+      ]
+    },
+    {
+      "tag": "emergency",
+      "patterns": [
+        "What should I do in case of an emergency?",
+        "How can I reach you during emergencies?",
+        "Is there an emergency hotline?"
+      ],
+      "responses": [
+        "In case of a medical emergency, please call your local emergency services number (e.g., 911). If you need non-emergency medical advice, you can contact our 24/7 helpline at [emergency hotline number]. Our medical professionals are ready to assist you.",
+        "During emergencies, please contact your local emergency services immediately. For non-urgent medical concerns, you can reach out to our dedicated helpline at [emergency hotline number]."
+      ]
+    },
+    {
+      "tag": "medications",
+      "patterns": [
+        "Can you prescribe medications?",
+        "Do you provide prescription services?",
+        "How can I get my prescriptions filled?"
+      ],
+      "responses": [
+        "Our healthcare providers can prescribe medications based on your condition and medical evaluation. We also offer prescription services for your convenience.",
+        "Our medical professionals can prescribe necessary medications for your treatment. You can obtain your prescriptions from our pharmacy or any other authorized pharmacy."
+      ]
+    },
+    {
+      "tag": "health_insurance",
+      "patterns": [
+        "Do you accept health insurance?",
+        "Can I use my insurance for payment?",
+        "Which health insurance plans do you work with?"
+      ],
+      "responses": [
+        "We work with a wide range of health insurance providers. Please provide us with your insurance details, and we will verify coverage for you.",
+        "We accept various health insurance plans. To ensure coverage, kindly provide your insurance information, and our team will assist you accordingly."
+      ]
+    },
+    {
+      "tag": "diseases",
+      "patterns": [
+        "What are common diseases you treat?",
+        "Tell me about the diseases you specialize in",
+        "Which medical conditions do you handle?"
+      ],
+      "responses": [
+        "We provide comprehensive care for various medical conditions, including but not limited to diabetes, hypertension, cardiovascular diseases, respiratory conditions, and infectious diseases. Our healthcare professionals are skilled in managing a wide range of illnesses.",
+        "Our healthcare center specializes in treating a variety of diseases, such as diabetes, cardiovascular conditions, respiratory disorders, infectious diseases, and more. Our medical team is well-equipped to diagnose and manage different medical conditions."
+      ]
+    },
+    {
+      "tag": "treatments",
+      "patterns": [
+        "What treatment options do you offer?",
+        "Tell me about the treatments available",
+        "How do you approach patient care and treatment?"
+      ],
+      "responses": [
+        "We offer a range of treatment options tailored to each patient's needs. Our treatments may include medication management, lifestyle modifications, surgical interventions, therapy sessions, and personalized care plans.",
+        "Our approach to patient care and treatment is comprehensive. We utilize evidence-based treatments, which may involve medications, therapies, surgeries, and lifestyle interventions. Our goal is to provide individualized care to optimize your health and well-being."
+      ]
+    }
+  ]
+}

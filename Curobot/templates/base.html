@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* CSS Animation */
+        @keyframes textAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        /* Apply the animation to the changing text */
+        #changing-text {
+            animation: textAnimation 4s infinite;
+            color: rgb(12, 212, 146);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>Curable</strong> </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="about.html">about</a>
+            <a href="#services">services</a>
+            <a href="http://127.0.0.1:5000">Consult online</a>
+            <a href="#appointment">appointment</a>
+            <a href="find.html">Find a doctor</a>
+            <a href="Curable_loc/loc.html">services near me</a>
+
+        </nav>
+
+        <div id="menu-btn"></div>
+
+    </header>
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="https://img.icons8.com/color/48/000000/bot.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Chat support</h4>
+                        <p class="chatbox__description--header">Hi. My name is Curo. How can I help you?</p>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="chatbox__send--footer send__button">Send</button>
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+            </div>
+        </div>
+
+        <div class="left-content">
+            <div class="img">
+                <img src="https://img.icons8.com/color/bot.png" alt="Logo" style="width:138px">
+
+            </div>
+            <div class="left-content__header">
+                <h2>Chat <span id="changing-text">with Curo</span></h2>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Array of changing text options
+        const changingTextOptions = [
+          "about your health",
+          "for medical advice",
+          "to get support",
+          "with Curo"
+        ];
+      
+        // Function to change the text periodically
+        function changeText() {
+          const changingText = document.getElementById("changing-text");
+          let currentIndex = 0;
+      
+          setInterval(() => {
+            changingText.textContent = changingTextOptions[currentIndex];
+            currentIndex = (currentIndex + 1) % changingTextOptions.length;
+          }, 4000); // Change text every 4 seconds
+        }
+      
+        // Call the function to start the text changing animation
+        changeText();
+      </script>
+
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root | tojson }};
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app2.js') }}"></script>
+
+</body>
+
+</html>
